@@ -14,6 +14,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - backend
+    restart: always 
 
   postgrest:
     image: postgrest/postgrest
@@ -27,6 +28,7 @@ services:
     networks:
       - backend
     command: postgrest /etc/postgrest.conf
+    restart: always 
 
   grafana:
     image: grafana/grafana:latest
@@ -41,6 +43,7 @@ services:
       - postgres
     networks:
       - backend
+    restart: always 
 
 volumes:
   pgdata:
